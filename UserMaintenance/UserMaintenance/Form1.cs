@@ -50,5 +50,13 @@ namespace UserMaintenance
                         u.FullName));
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var törlendő = listBox1.SelectedItem;
+            if (törlendő != null)
+                users.Remove((User)törlendő);
+
+        }
     }
 }
