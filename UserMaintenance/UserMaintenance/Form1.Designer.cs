@@ -48,7 +48,7 @@ namespace UserMaintenance
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(291, 22);
+            this.textBox1.Location = new System.Drawing.Point(321, 21);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(225, 22);
             this.textBox1.TabIndex = 1;
