@@ -21,21 +21,28 @@ namespace MnbCurrencyReader
         public Form1()
         {
             InitializeComponent();
+            RefreshData();
+        }
+
+        private void RefreshData()
+        {
+            Rates.Clear();
             Arfolyam();
             XML();
             Diagram();
             dataGridView1.DataSource = Rates;
             chartRateData.DataSource = Rates;
         }
+
         private void Arfolyam()
         {
             
             var mnbService = new MNBArfolyamServiceSoapClient();
             var request = new GetExchangeRatesRequestBody()
             {
-                currencyNames = "EUR",
-                startDate = "2020-01-01",
-                endDate = "2020-06-30"
+                currencyNames = cbxValuta.SelectedItem.ToString(),
+                startDate = dateTimePicker1.Value.ToString("yyyy-MM-dd"),
+                endDate = dateTimePicker2.Value.ToString("yyyy-MM-dd")
             };
            var response = mnbService.GetExchangeRates(request);
            result = response.GetExchangeRatesResult;
@@ -81,6 +88,21 @@ namespace MnbCurrencyReader
             chartArea.AxisX.MajorGrid.Enabled = false;
             chartArea.AxisY.MajorGrid.Enabled = false;
             chartArea.AxisY.IsStartedFromZero = false;
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshData();
         }
     }
 }
