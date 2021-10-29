@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,16 +18,31 @@ namespace MnbCurrencyReader
     public partial class Form1 : Form
     {
         BindingList<RateData> Rates = new BindingList<RateData>();
+        BindingList<string> currencies = new BindingList<string>();
         string result;
         public Form1()
         {
             InitializeComponent();
+            cbxValuta.DataSource = currencies;
+            var mnbService = new MNBArfolyamServiceSoapClient();
+            var request = new GetCurrenciesRequestBody();
+            var response = mnbService.GetCurrencies(request);
+            result = response.GetCurrenciesResult;
+            XmlDocument vxml = new XmlDocument();
+            vxml.LoadXml(result);
+            foreach (XmlElement item in vxml.DocumentElement.FirstChild.ChildNodes)
+            {
+                currencies.Add(item.InnerText);
+            }
             RefreshData();
         }
 
         private void RefreshData()
         {
             Rates.Clear();
+
+            if (cbxValuta.SelectedItem == null) return;
+
             Arfolyam();
             XML();
             Diagram();
@@ -36,7 +52,7 @@ namespace MnbCurrencyReader
 
         private void Arfolyam()
         {
-            
+            if (cbxValuta.SelectedItem == null) return; 
             var mnbService = new MNBArfolyamServiceSoapClient();
             var request = new GetExchangeRatesRequestBody()
             {
@@ -60,8 +76,9 @@ namespace MnbCurrencyReader
 
                 rate.Date = DateTime.Parse(element.GetAttribute("date"));
 
-
                 var childElement = (XmlElement)element.ChildNodes[0];
+                if (childElement == null) continue;
+
                 rate.Currency = childElement.GetAttribute("curr");
 
 
