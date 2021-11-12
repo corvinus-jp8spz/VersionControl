@@ -71,7 +71,7 @@ namespace _8.gyakorlat
         {
             Factory = new BallFactory
             {
-                BallColor = buttonBall.BackColor
+                BallColor = button1.BackColor
             };
         }
         private void DisplayNext()

@@ -75,7 +75,7 @@ namespace _8.gyakorlat
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button1.Location = new System.Drawing.Point(208, 173);
+            this.button1.Location = new System.Drawing.Point(407, 119);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 27);
             this.button1.TabIndex = 3;
@@ -94,12 +94,13 @@ namespace _8.gyakorlat
             // 
             // buttonBall
             // 
+            this.buttonBall.BackColor = System.Drawing.SystemColors.Control;
             this.buttonBall.Location = new System.Drawing.Point(313, 118);
             this.buttonBall.Name = "buttonBall";
             this.buttonBall.Size = new System.Drawing.Size(75, 23);
             this.buttonBall.TabIndex = 1;
             this.buttonBall.Text = "BALL";
-            this.buttonBall.UseVisualStyleBackColor = true;
+            this.buttonBall.UseVisualStyleBackColor = false;
             this.buttonBall.Click += new System.EventHandler(this.buttonBall_Click);
             // 
             // buttonCar
@@ -114,7 +115,7 @@ namespace _8.gyakorlat
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(337, 176);
+            this.button2.Location = new System.Drawing.Point(208, 173);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(95, 24);
             this.button2.TabIndex = 4;
@@ -125,22 +126,24 @@ namespace _8.gyakorlat
             // BoxColorButton
             // 
             this.BoxColorButton.BackColor = System.Drawing.Color.Red;
-            this.BoxColorButton.Location = new System.Drawing.Point(337, 241);
+            this.BoxColorButton.Location = new System.Drawing.Point(327, 174);
             this.BoxColorButton.Name = "BoxColorButton";
             this.BoxColorButton.Size = new System.Drawing.Size(75, 23);
             this.BoxColorButton.TabIndex = 5;
             this.BoxColorButton.Text = "button3";
             this.BoxColorButton.UseVisualStyleBackColor = false;
+            this.BoxColorButton.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // RibbenColorButton
             // 
             this.RibbenColorButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.RibbenColorButton.Location = new System.Drawing.Point(337, 286);
+            this.RibbenColorButton.Location = new System.Drawing.Point(419, 174);
             this.RibbenColorButton.Name = "RibbenColorButton";
             this.RibbenColorButton.Size = new System.Drawing.Size(75, 23);
             this.RibbenColorButton.TabIndex = 6;
             this.RibbenColorButton.Text = "button4";
             this.RibbenColorButton.UseVisualStyleBackColor = false;
+            this.RibbenColorButton.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Form1
             // 
