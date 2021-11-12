@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace _8.gyakorlat.Entities
 {
-    public class BallFactory : IToyFactory
+    class PresentFactory : IToyFactory
     {
-        public Color BallColor { get; set; }
-
+        public Color BoxColor { get; set; }
+        public Color RibbenColor { get; set; }
         public Toy CreateNew()
         {
-            return new Ball(BallColor);
+            return new Present(BoxColor, RibbenColor);
         }
     }
 }

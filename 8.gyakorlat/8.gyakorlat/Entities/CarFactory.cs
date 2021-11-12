@@ -1,4 +1,5 @@
 ﻿using _8.gyakorlat.Abstractions;
+using _8.gyakorlat.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace _8.gyakorlat.Entities
     {
         public Toy CreateNew()
         {
-            return new Ball();
+            return new Car();
         }
     }
 }
