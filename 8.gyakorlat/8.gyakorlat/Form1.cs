@@ -61,13 +61,13 @@ namespace _8.gyakorlat
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonCar_Click(object sender, EventArgs e)
         {
             Factory = new CarFactory();
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonBall_Click(object sender, EventArgs e)
         {
             Factory = new BallFactory();
 
@@ -80,6 +80,17 @@ namespace _8.gyakorlat
             _nextToy.Top = label1.Top + label1.Height + 20;
             _nextToy.Left = label1.Left;
             Controls.Add(_nextToy);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var colorPicker = new ColorDialog();
+
+            colorPicker.Color = button.BackColor;
+            if (colorPicker.ShowDialog() != DialogResult.OK)
+                return;
+            button.BackColor = colorPicker.Color;
         }
     }
 }
