@@ -9,21 +9,22 @@ using UnitTestExample.Controllers;
 
 namespace UnitTestExample.Test
 {
-    public class AccountControllerTestFixture
+    public class AccountControllerPasswordTest
     {
         [Test,
+        TestCase("ABD12334", false),
+        TestCase("Ab1234", false),
+        TestCase("Abcd1234", true),
         TestCase("abcd1234", false),
-        TestCase("irf@uni-corvinus", false),
-        TestCase("irf.uni-corvinus.hu", false),
-        TestCase("irf@uni-corvinus.hu", true),
+        TestCase("abcdBCD", false)
          ]
-        public void TestValidateEmail(string email, bool expectedResult)
+        public void ValidatePassword(string password, bool expectedResult)
         {
             // Arrange
             var accountController = new AccountController();
 
             // Act
-            var actualResult = accountController.ValidateEmail(email);
+            var actualResult = accountController.ValidatePassword(password);
 
             // Assert
             Assert.AreEqual(expectedResult, actualResult);
